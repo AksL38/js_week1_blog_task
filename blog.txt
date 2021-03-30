@@ -1,0 +1,42 @@
+1) Difference between HTTP/1.1 and HTTP/2:
+       * HTTP/1.1 is text based while HTTP/2 is binary based allowing use of improved optimization techniques.
+       * HTTP/2 allows multiplexing that is handling of parallel requests over same connection reducing latency.
+       * In HTTP/2 we can compress headers which reduces duplication and overhead.
+       * HTTP/2 has server push mechanism which allows server to push data in client cache before it is required.
+ 
+2) HTTP version history:
+       * In 1989, Tim Bemers-Lee at CERN developed a proposal to build a hypertext system over the internet. It was build over existing TCP/IP 
+   protocols. Proposal called World wide web consisted of 4 building blocks.
+       1. Textual format to represent hypertext documents called HyperText Markup Language HTML
+       2. A simple protocol to exchange these documents called HyperText Transfer Protocol HTTP.
+	     3. A client to display these documents called web browser.
+	     4. A server to give access to these documents.
+      * Protocol in above initial implementation of WWW was dubbed HTTP/0.9. It was every simple, requests consisted of single line and only 
+	one method GET was avaiable. Response was also very simple, it produced hypertext document itself.
+      * HTTP/1.0: Version information, status code and headers were introduced. Due to content-type headers now servers could send files 
+	other than simple HTML files.
+      * HTTP/1.1 Version standardised HTTP protocol. Standardisation clarified ambiguities. Improvements added were reusability of connections
+	, pipelining, chunked responses, more cache control mechanisms, content negotiation including language, encoding and type negotiation
+	between client and server, ability to host different domains on same IP address. These improvements reduced latency and added more
+	flexibility to client-server communication.
+      * Two revisions: HTTP/1.1 was revised in 1999 and then again in 2014. Since 1994 SSL was introduced for secure communication. New pattern
+	for using HTTP was designed in 2000 called representational state transfer.
+      * HTTP/2: To deal with increasingly complex websites and internet traffic, protocol giving greater performance was needed. In 2010s HTTP/2
+	based on google's data exchange protocol called SPDY.
+
+3) Differences between browserJS(console) and nodeJS.
+      * In browser JS, "window", "location", "document" are predefined objects, not in nodejs.
+      * In nodejs "require" is predefined object not in console.
+      * NodeJs uses commonJS module system while browserJS is moving towards ES modules standard.
+      * BrowserJS JS engine in sandboxed inside a browser while in nodeJS it can interact with OS filesystem and other APIs.
+      * NodeJS provides more control over environment while in browserJS we have take account of diverse browser environments our code might run on.
+
+4) What happens when you type a URL in the address bar in the browser
+	1. Browser finds DNS entry corresponding to domain name checking first in browser cache, if not then in OS cache, if not then in router cache
+	, if not then ISP cache. If DNS entry is not found in any of the caches, ISP's DNS server initiates DNS query to find IP address of server that
+	hosts domain name.
+	2. Browser initiates TCP connection with server using synchronise and acknowledge messages.
+	3. Browser sends HTTP request to the web server.
+	4. Server processes the request and creates response in some format like JSON, XML, HTML
+	5. Server sends HTTP response along with status code indicating success/failure of request
+	6. Browser displays HTML content after parsing server response.
